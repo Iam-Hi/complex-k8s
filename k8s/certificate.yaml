@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+meta:
+  name: iamhi-xyz-tls
+spec:
+  secretName: iamhi-xyz
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: iamhi.xyz
+  dnsNames:
+    - iamhi.xyz
+    - www.iamhi.xyz
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - iamhi.xyz
+          - www.iamhi.xyz
