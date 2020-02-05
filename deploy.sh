@@ -6,9 +6,9 @@ docker push worker/multi-client:latest
 docker push worker/multi-server:latest
 docker push worker/multi-worker:latest
 
-docker push worker/multi-client:GIT_SHA
-docker push worker/multi-server:GIT_SHA
-docker push worker/multi-worker:GIT_SHA
+docker push worker/multi-client:$GIT_SHA
+docker push worker/multi-server:$GIT_SHA
+docker push worker/multi-worker:$GIT_SHA
 
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=iamhi/multi-server:$GIT_SHA
